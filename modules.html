@@ -2695,7 +2695,17 @@ img {
 			</a>
 			<p><a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier"></a>
 			<a href="https://coveralls.io/github/glebbash/env-var-base?branch=master"><img src="https://coveralls.io/repos/github/glebbash/env-var-base/badge.svg?branch=master" alt="Coverage Status"></a></p>
-			<p>TODO: add description</p>
+			<p>Base configuration class that uses env-var and dotenv</p>
+			<p>Usage:</p>
+			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">BaseConfig</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;env-var-base&#039;</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppConfig</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">BaseConfig</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">port</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;PORT&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">default</span><span style="color: #000000">(</span><span style="color: #098658">3000</span><span style="color: #000000">).</span><span style="color: #795E26">asPortNumber</span><span style="color: #000000">()</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">config</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AppConfig</span><span style="color: #000000">()</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">port</span><span style="color: #000000">) </span><span style="color: #008000">// 3000</span>
+</code></pre>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
