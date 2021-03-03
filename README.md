@@ -16,3 +16,5 @@ class AppConfig extends BaseConfig {
 const config = new AppConfig()
 console.log(config.port) // 3000
 ```
+
+Bootstrapped with https://github.com/LuisReinoso/typescript-library-starter
