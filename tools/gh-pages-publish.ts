@@ -17,6 +17,9 @@ const parsedUrl = new URL(repoUrl)
 const repository = parsedUrl.host + parsedUrl.pathname
 const ghToken = process.env.GH_TOKEN
 
+console.log(repoUrl)
+console.log(repository)
+
 echo('Deploying docs!!!')
 cd('docs')
 touch('.nojekyll')
