@@ -41,13 +41,25 @@ jobs:
 
       - name: Install dependencies
         run: |
-            npm ci
-            npm run build
+          npm ci
+          npm run build
+
+      - name: Commit docs
+        run: |
+          cd docs
+          touch .nojekyll
+          git init
+          git add .
+          git config user.name "glebbash"
+          git config user.email "glebbash@gmail.com"
+          git commit -m "docs(docs): update gh-pages"
 
       - name: Publish docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run deploy-docs
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: docs
+          branch: master:gh-pages
 
       - name: Release
         env:
