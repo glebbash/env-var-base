@@ -60,6 +60,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: docs
           branch: master:gh-pages
+          force: true
 
       - name: Release
         env:
