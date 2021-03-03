@@ -49,16 +49,15 @@ jobs:
           cd docs
           touch .nojekyll
           git init
-          git add .
           git config user.name "glebbash"
           git config user.email "glebbash@gmail.com"
-          git commit -m "docs(docs): update gh-pages"
+          git commit -m "docs(docs): update gh-pages" -a
 
       - name: Publish docs
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: docs
+          # directory: docs
           branch: master:gh-pages
           force: true
 
