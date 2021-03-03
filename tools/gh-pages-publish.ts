@@ -1,20 +1,21 @@
 import { cd, exec, echo, touch } from 'shelljs'
 import { readFileSync } from 'fs'
 
-let repoUrl: string
 const pkg = JSON.parse(readFileSync('package.json') as any)
-if (typeof pkg.repository === 'object') {
-  if (!pkg.repository.hasOwnProperty('url')) {
-    throw new Error('URL does not exist in repository section')
+const repoUrl = (() => {
+  if (typeof pkg.repository === 'object') {
+    if (!pkg.repository.hasOwnProperty('url')) {
+      throw new Error('URL does not exist in repository section')
+    }
+    return pkg.repository.url
+  } else {
+    return pkg.repository
   }
-  repoUrl = pkg.repository.url
-} else {
-  repoUrl = pkg.repository
-}
+})()
 
 const parsedUrl = new URL(repoUrl)
-const repository = (parsedUrl.host || '') + (parsedUrl.pathname || '')
-const ghToken = process.env.GITHUB_TOKEN
+const repository = parsedUrl.host + parsedUrl.pathname
+const ghToken = process.env.GH_TOKEN
 
 echo('Deploying docs!!!')
 cd('docs')
