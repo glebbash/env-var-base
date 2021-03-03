@@ -1,5 +1,4 @@
 import { from } from 'env-var'
-import { config } from 'dotenv'
 
 /**
  * Base configuration class that uses env-var and dotenv
@@ -25,7 +24,8 @@ export class BaseConfig {
     if (env) {
       this.env = from(env)
     } else {
-      config()
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      require('dotenv').config()
       this.env = from(process.env)
     }
   }
