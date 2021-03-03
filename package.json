@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Base configuration class that uses env-var and dotenv",
   "keywords": ["config", "env-var", "dotenv", "typescript"],
-  "main": "dist/env-var-base.js",
+  "main": "dist/lib/env-var-base.js",
   "typings": "dist/types/env-var-base.d.ts",
   "files": [
     "dist"
