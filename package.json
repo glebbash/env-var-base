@@ -1,10 +1,9 @@
 {
   "name": "env-var-base",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
-  "main": "dist/env-var-base.umd.js",
-  "module": "dist/env-var-base.es5.js",
+  "description": "Base configuration class that uses env-var and dotenv",
+  "keywords": ["config", "env-var", "dotenv", "typescript"],
+  "main": "dist/env-var-base.js",
   "typings": "dist/types/env-var-base.d.ts",
   "files": [
     "dist"
