@@ -51,24 +51,6 @@ jobs:
           publish_branch: gh-pages
           publish_dir: docs
 
-      # - name: Commit docs
-      #   run: |
-      #     cd docs
-      #     touch .nojekyll
-      #     git init
-      #     git add .
-      #     git config user.name "glebbash"
-      #     git config user.email "glebbash@gmail.com"
-      #     git commit -m "docs(docs): update gh-pages"
-
-      # - name: Publish docs
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     # directory: docs
-      #     branch: master:gh-pages
-      #     force: true
-
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
