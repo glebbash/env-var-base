@@ -5,6 +5,11 @@
 
 Base configuration class that uses env-var and dotenv
 
+Installation:
+```sh
+npm i env-var-base
+```
+
 Usage:
 ```ts
 import { BaseConfig } from 'env-var-base'
