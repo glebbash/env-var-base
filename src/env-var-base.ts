@@ -2,18 +2,31 @@ import { from } from 'env-var'
 
 /**
  * Base configuration class that uses env-var and dotenv
- *
  * Usage:
+ *
  * ```ts
  * class AppConfig extends BaseConfig {
  *   port = this.get('PORT').default(3000).asPortNumber()
  * }
- *
  * const config = new AppConfig()
  * console.log(config.port) // 3000
  * ```
+ *
+ * Env names can also be typed like this:
+ *
+ * ```ts
+ * type Env = { PORT: string, HOST: string }
+ *
+ * class AppConfig extends BaseConfig<keyof Env> {}
+ * ```
+ *
+ * or directly:
+ *
+ * ```ts
+ * class AppConfig extends BaseConfig<'PORT' | 'HOST'> {}
+ * ```
  */
-export class BaseConfig {
+export class BaseConfig<N extends string = string> {
   protected env: ReturnType<typeof from>
 
   /**
@@ -37,7 +50,7 @@ export class BaseConfig {
    * ```
    */
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected get(name: string) {
+  protected get(name: N) {
     return this.env.get(name)
   }
 }

@@ -6,20 +6,33 @@
 Base configuration class that uses env-var and dotenv
 
 Installation:
+
 ```sh
 npm i env-var-base
 ```
 
 Usage:
-```ts
-import { BaseConfig } from 'env-var-base'
 
+```ts
 class AppConfig extends BaseConfig {
   port = this.get('PORT').default(3000).asPortNumber()
 }
-
 const config = new AppConfig()
 console.log(config.port) // 3000
 ```
 
-Bootstrapped with https://github.com/LuisReinoso/typescript-library-starter
+Env names can also be typed like this:
+
+```ts
+type Env = { PORT: string, HOST: string }
+
+class AppConfig extends BaseConfig<keyof Env> {}
+```
+
+or directly:
+
+```ts
+class AppConfig extends BaseConfig<'PORT' | 'HOST'> {}
+```
+
+Bootstrapped with <https://github.com/LuisReinoso/typescript-library-starter>
