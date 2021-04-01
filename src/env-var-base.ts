@@ -33,7 +33,7 @@ export class BaseConfig<N extends string = string> {
    * @param env Environmental variables source,
    * if not specified defaults to process.env with dotenv
    */
-  constructor(env?: Record<string, string>) {
+  constructor(env?: Record<N, string | undefined>) {
     if (env) {
       this.env = from(env)
     } else {
