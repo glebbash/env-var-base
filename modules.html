@@ -2682,7 +2682,7 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-class">
+		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="classes/baseconfig.html" class="tsd-kind-icon">Base<wbr>Config</a>
 		</li>
 	</ul>
@@ -2703,14 +2703,19 @@ img {
 			<pre><code class="language-sh"><span style="color: #000000">npm i env-var-base</span>
 </code></pre>
 			<p>Usage:</p>
-			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">BaseConfig</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;env-var-base&#039;</span>
-
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppConfig</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">BaseConfig</span><span style="color: #000000"> {</span>
+			<pre><code class="language-ts"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppConfig</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">BaseConfig</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #001080">port</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;PORT&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">default</span><span style="color: #000000">(</span><span style="color: #098658">3000</span><span style="color: #000000">).</span><span style="color: #795E26">asPortNumber</span><span style="color: #000000">()</span>
 <span style="color: #000000">}</span>
-
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">config</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AppConfig</span><span style="color: #000000">()</span>
 <span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">port</span><span style="color: #000000">) </span><span style="color: #008000">// 3000</span>
+</code></pre>
+			<p>Env names can also be typed like this:</p>
+			<pre><code class="language-ts"><span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">Env</span><span style="color: #000000"> = { </span><span style="color: #001080">PORT</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #001080">HOST</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> }</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppConfig</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">BaseConfig</span><span style="color: #000000">&lt;</span><span style="color: #0000FF">keyof</span><span style="color: #000000"> </span><span style="color: #267F99">Env</span><span style="color: #000000">&gt; {}</span>
+</code></pre>
+			<p>or directly:</p>
+			<pre><code class="language-ts"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">AppConfig</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">BaseConfig</span><span style="color: #000000">&lt;</span><span style="color: #A31515">&#039;PORT&#039;</span><span style="color: #000000"> | </span><span style="color: #A31515">&#039;HOST&#039;</span><span style="color: #000000">&gt; {}</span>
 </code></pre>
 			<p>Bootstrapped with <a href="https://github.com/LuisReinoso/typescript-library-starter">https://github.com/LuisReinoso/typescript-library-starter</a></p>
 		</div>
@@ -2721,7 +2726,7 @@ img {
 					<section class="tsd-index-section ">
 						<h3>Classes</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-class"><a href="classes/baseconfig.html" class="tsd-kind-icon">Base<wbr>Config</a></li>
+							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/baseconfig.html" class="tsd-kind-icon">Base<wbr>Config</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2734,9 +2739,6 @@ img {
 					<ul class="tsd-legend">
 						<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 						<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 					</ul>
 				</div>
 			</div>
