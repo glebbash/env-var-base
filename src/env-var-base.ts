@@ -49,8 +49,7 @@ export class BaseConfig<N extends string = string> {
    * port = this.get('PORT').default(3000).asPortNumber()
    * ```
    */
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected get(name: N) {
-    return this.env.get(name)
+    return this.env.get(name as never)
   }
 }
