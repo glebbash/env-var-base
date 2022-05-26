@@ -9,9 +9,9 @@
     "typescript"
   ],
   "main": "lib/env-var-base.js",
-  "typings": "lib/env-var-base.d.ts",
+  "types": "lib/env-var-base.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "author": "glebbash <glebbash@gmail.com>",
   "repository": {
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "lint": "eslint --fix 'src/**/*.ts' 'test/**/*.ts'",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf lib",
     "build": "tsc",
     "build:docs": "typedoc --out docs src/env-var-base.ts",
     "test": "jest --coverage",
