@@ -26,7 +26,7 @@
     "lint": "eslint --fix 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "build:docs": "typedoc --out docs --theme minimal src",
+    "build:docs": "typedoc --out docs src/env-var-base.ts",
     "test": "jest --coverage",
     "test:prod": "npm run lint && npm run test -- --no-cache"
   },
