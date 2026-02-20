@@ -3,7 +3,7 @@
 > status: DEPRECATED
 > 
 > This wrapper proved to not bring enough value. The following pattern should be used instead: 
-> ```
+> ```ts
 > import { Injectable } from '@nestjs/common';
 > import envVar from 'env-var';
 > 
